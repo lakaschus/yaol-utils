@@ -1,6 +1,7 @@
 from varname import argname
 import inspect
 
+
 def fprint(object, max_length=0, name=""):
     """ A fancier print function
     
@@ -17,9 +18,9 @@ def fprint(object, max_length=0, name=""):
             name = name
         else:
             name = str(object)
-    
+
     # Credit: https://stackoverflow.com/a/6811020/13219555
-    
+
     callerframerecord = inspect.stack()[1]
     frame = callerframerecord[0]
     info = inspect.getframeinfo(frame)
@@ -28,11 +29,12 @@ def fprint(object, max_length=0, name=""):
     if max_length < length:
         max_length = length
     hr = "#" + "="*(max_length - 2) + "#"
+
     def text_field(name):
         length = len(name)
         return str("#" + " "*int((max_length - length)/2 - 1) + name +
               " "*int((max_length - length)/2 + 1*(len(name)%2 - 1)) + "#")
-    
+
     if len(object) > max_length - 5:
         object_split = []
         while len(object) > max_length - 5:
